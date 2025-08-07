@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Users Verification</title>
+  <script src="main.js" defer></script>
+  <style>
+    :root {
+      --bg-color: white;
+      --accent-color: #0a0733;
+      --input-bg: #1C1B2A;
+      --font-color: black;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--font-color);
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: var(--font-color);
+      font-weight: normal;
+      align-self: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    label {
+      align-self: flex-start;
+      margin: 1rem 0 0.5rem;
+    }
+
+    select {
+      width: 100%;
+      max-width: 400px;
+      height: 45px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .info-box {
+      background-color: #d6f0ff;
+      padding: 1rem;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+    }
+
+    .info-box ul {
+      padding-left: 1.2rem;
+    }
+
+    img {
+      margin-top: 1rem;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    button {
+      padding: 1rem;
+      background: var(--accent-color);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button:hover {
+      background: #020113;
+    }
+  </style>
+</head>
+<body>
+  <h1>Users Verification</h1>
+
+  <label for="Id-type">Please select your preferred ID</label>
+  <select name="Id-type" id="Id-type">
+    <option value="">-- Select --</option>
+    <option value="Driver's License">National Driver's License</option>
+    <option value="Passport">Passport</option>
+    <option value="NIN">National Identification Number</option>
+  </select>
+
+  <label><h2>Get your ID card ready</h2></label>
+  <p>You'll capture the front and back of the ID.</p>
+
+  <img src="c:\Users\User\Pictures\Camera Roll\ID picture.png" alt="ID Placeholder">
+
+  <div class="info-box">
+    <strong>Please avoid using:</strong>
+    <ul>
+      <li>Expired ID</li>
+      <li>Photocopied or printed ID</li>
+    </ul>
+  </div>
+
+  <button onclick="window.location.href='camera.html'">Continue</button>
+</body>
+</html>

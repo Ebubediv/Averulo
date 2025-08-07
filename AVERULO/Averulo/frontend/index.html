@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Finder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9fb;
+      padding: 1rem;
+      color: #1a1a1a;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .welcome {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .filters {
+      margin: 1rem 0;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filters button {
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: none;
+      background-color: #eee;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .profile-complete {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .profile-complete p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .green { background-color: #3bb77e; }
+    .red { background-color: #e63946; }
+
+    .recommend {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .recommend img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .recommend h4 {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-weight: 600;
+      margin: 1rem 0 0.5rem;
+    }
+
+    .search-btn {
+      display: block;
+      width: 100%;
+      padding: 0.75rem;
+      background-color: #0a174e;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      cursor: pointer;
+    }
+
+    .hotel-card {
+      background-color: #fff;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .hotel-card img {
+      width: 100%;
+      display: block;
+    }
+
+    .hotel-info {
+      padding: 0.75rem;
+    }
+
+    .hotel-info h4 {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+    }
+
+    .view-btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #0a174e;
+      color: white;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <header>
+    <div class="welcome">👋 Welcome! John Peter</div>
+    <div>☰</div>
+  </header>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for location, hotel">
+  </div>
+
+  <div class="filters">
+    <button>All</button>
+    <button>Popular</button>
+    <button>Price</button>
+    <button>Amenities</button>
+    <button>Type</button>
+  </div>
+
+  <div class="profile-complete">
+    <strong>Complete your profile</strong>
+    <p>Phone Number <span class="dot green"></span></p>
+    <p>Profile <span class="dot red"></span></p>
+    <p>Recommendation <span class="dot green"></span></p>
+  </div>
+
+  <div class="recommend">
+    <img src="c:\Users\User\Pictures\Camera Roll\hotel5.jpg" alt="Hotel image">
+    <h4>Luger de grande, 510, South Africa</h4>
+    <small>3,020 km away • $644,653</small>
+  </div>
+
+  <h3 class="section-title">Find Your hotel</h3>
+  <p>Explore the best properties across Africa with ease and confidence</p>
+  <button class="search-btn">Start your Search</button>
+
+  <h3 class="section-title">Your Matches</h3>
+  <div class="hotel-card">
+    <img src="c:\Users\User\Pictures\Camera Roll\hotel4.jpg" alt="King Hotel">
+    <div class="hotel-info">
+      <h4>King Hotel, Nigeria</h4>
+      <p>📍 Lagos • 15 reviewers • $704,653</p>
+      <a href="#" class="view-btn">View Now</a>
+    </div>
+  </div>
+
+  <h3 class="section-title">Most popular hotels</h3>
+  <div class="hotel-card">
+    <img src="c:\Users\User\Pictures\Camera Roll\hotel1.jpg" alt="Popular hotel">
+    <div class="hotel-info">
+      <h4>Grand Palace Hotel</h4>
+      <p>📍 Cape Town • $812,000</p>
+      <a href="#" class="view-btn">View Now</a>
+    </div>
+  </div>
+  <script>
+  window.location.href = "login.html";
+</script>
+  
+</body>
+</html>

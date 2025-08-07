@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Averulo | Splash</title>
+  <script src="main.js" defer></script>
+  <style>
+    :root {
+      --background-color: #0D0C1D;
+      --accent-color: #F76C6C;
+      --font-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: var(--font-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .logo-container {
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .logo-container img {
+      width: 60%;
+      max-width: 200px;
+      object-fit: contain;
+    }
+
+    .app-name {
+      margin-top: 20px;
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      letter-spacing: 1.2px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (min-width: 600px) {
+      .app-name {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <img src="c:\Users\User\Downloads\WhatsApp Image 2025-08-02 at 07.48.49.jpeg" alt="Averulo Logo" />
+
+  </div>
+
+  <script>
+    // Simulate splash loading then go to login
+    setTimeout(() => {
+      window.location.href = "login.html"; // point to your actual login page
+    }, 3000); // 3 seconds
+  </script>
+</body>
+</html>

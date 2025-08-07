@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Take a photo of your ID</title>
+  <style >
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+      background-color: black;
+    }
+
+    video, canvas, img {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+
+    button, select {
+      margin: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: none;
+    }
+    button,select:hover {
+        opacity: 0.9;
+      background-color: #fcfcfd;
+    }
+  </style>
+  <script src="main.js" defer></script>
+</head>
+<body>
+
+  <h2 style="color: white; font-weight: normal;">Take a photo of your ID</h2>
+
+   <!--Camera selection
+  <label for="cameraSelect">Choose camera:</label>
+  
+  <select id="cameraSelect">
+    <option value="environment">Back Camera</option>
+    <option value="user">Front Camera</option>
+  </select>-->
+
+  <!-- Video stream -->
+  <video id="video" autoplay playsinline></video>
+
+  <!-- Capture photo -->
+  <button onclick="takePhoto()" style="width: 100%; background-color: black; color: white;"> Take Photo</button>
+
+  <!-- Canvas to hold the captured image -->
+  <canvas id="canvas" style="display:none;"></canvas>
+  <img id="photo" style="display:none;" alt="Captured Photo">
+
+  <!-- Simulated upload -->
+  <button onclick="uploadPhoto()" style="width: 100%; background-color:black; color: white;"> Submit Photo</button> 
+
+  <!-- Back button -->
+  <br>
+  <button onclick="window.location.href='index.html'">← Back</button>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const photo = document.getElementById('photo');
+    const cameraSelect = document.getElementById('cameraSelect');
+    let currentStream;
+
+    // Start camera stream based on selected mode
+    async function startCamera(facingMode = 'environment') {
+      if (currentStream) {
+        currentStream.getTracks().forEach(track => track.stop());
+      }
+
+      try {
+        const constraints = {
+          video: {
+            facingMode: facingMode
+          },
+          audio: false
+        };
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        currentStream = stream;
+        video.srcObject = stream;
+      } catch (error) {
+        alert('Camera access denied or not supported.');
+        console.error(error);
+      }
+    }
+
+    // Capture frame from video to canvas
+    function takePhoto() {
+      const context = canvas.getContext('2d');
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const dataURL = canvas.toDataURL('image/png');
+      photo.src = dataURL;
+      photo.style.display = 'block';
+    }
+
+    // Simulate photo upload
+    function uploadPhoto() {
+      if (photo.src) {
+        alert('Photo uploaded successfully (simulated)!');
+      } else {
+        alert('Please capture a photo first.');
+      }
+    }
+
+     //Handle camera selection
+     //cameraSelect.addEventListener('change', () => {
+     // startCamera(cameraSelect.value);
+     startCamera('environment')
+    
+
+
+    // Start with default camera
+    startCamera();
+  </script>
+
+</body>
+</html>

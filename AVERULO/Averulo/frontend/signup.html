@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Averulo | Sign Up</title>
+  <script src="main.js" defer></script>
+  <style>
+    :root {
+      --bg-color: white;
+      --accent-color: black;
+      --input-bg: white;
+      --font-color: black;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--font-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-top: 2rem;
+      color: var(--accent-color);
+      font-size: 1.8rem;
+    }
+
+    form {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 2rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: black;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: #0a0733;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #020113;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <form onsubmit="handleSignup(event)">
+    <label for="fullName">Full Name</label>
+    <input name="fullName" type="text" required />
+
+    <label for="dob">Date of Birth</label>
+    <input name="dob" type="date" required />
+
+    <label for="password">Password</label>
+    <input name="password" type="password" required />
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input name="confirmPassword" type="password" required />
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <script>
+    async function handleSignup(e) {
+      e.preventDefault();
+
+      const form = e.target;
+      const fullName = form.fullName.value.trim();
+      const dob = form.dob.value;
+      const password = form.password.value;
+      const confirmPassword = form.confirmPassword.value;
+
+      if (password !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      try {
+        const res = await fetch('http://localhost:3000/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ fullName, dob, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert("Signup successful! Redirecting to OTP...");
+          // Save the email or ID for verification flow
+          localStorage.setItem('signupUser', JSON.stringify(data.user));
+          window.location.href = "otp.html";
+        } else {
+          alert(data.message || "Signup failed.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("An error occurred during signup.");
+      }
+    }
+  </script>
+</body>
+</html>

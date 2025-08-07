@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | myApp</title>
+  <style>
+    :root {
+      --bg-color: #ffffff;
+      --primary-color: #0a0733;
+      --accent-color: #f76c6c;
+      --btn-color: #e0e0e0;
+      --font-color: #000000;
+    }
+
+    body {
+      background: var(--bg-color);
+      color: var(--font-color);
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h2 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .form-container {
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    button {
+      width: 100%;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      border: 1px solid #ccc;
+    }
+
+    button.login-btn {
+      background-color:#0a0733 ;
+      color: white;
+      margin-top: 1rem;
+    }
+
+    .or {
+      text-align: center;
+      margin: 1.5rem 0 1rem;
+      font-weight: bold;
+    }
+
+    .social-btn {
+      background-color: var(--btn-color);
+      color: black;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-btn img {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (min-width: 600px) {
+      body {
+        padding: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h2>Welcome Back</h2>
+  <div class="form-container">
+    <form id="login-form">
+      <input type="email" placeholder="Email" name="email" required />
+      
+      <button type="submit" class="login-btn">Log In</button>
+    </form>
+
+    <div class="or">or</div>
+
+    <button class="social-btn" onclick="continueAsGuest()">Continue as Guest</button>
+    <button class="social-btn" onclick="continueWith('google')">
+      <img src="c:\Users\User\Pictures\Camera Roll\Google logo.png" alt="Google Logo" /> Continue with Google
+    </button>
+    <button class="social-btn" onclick="continueWith('apple')">
+      <img src="c:\Users\User\Pictures\Camera Roll\apple logo.png" alt="Apple Logo" /> Continue with Apple
+    </button>
+    <button class="social-btn" onclick="continueWith('facebook')">
+      <img src="c:\Users\User\Pictures\Camera Roll\Facebook logo.png" alt="Facebook Logo" /> Continue with Facebook
+    </button>
+  </div>
+
+  <script>
+    document.getElementById("login-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      // Send credentials to backend (to be handled in main.js)
+      alert("Logging in...");
+    });
+
+    function continueAsGuest() {
+      window.location.href = "home.html"; // You can redirect to the hotel browsing page
+    }
+
+    function continueWith(provider) {
+      alert("OAuth with " + provider + " will be implemented here.");
+      // Placeholder for OAuth integration
+    }
+  </script>
+</body>
+</html>
