@@ -1,4 +1,4 @@
 exclude:
   - node_modules
-
+  - AVERULO/node_modules
   
